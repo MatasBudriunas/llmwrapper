@@ -1,0 +1,28 @@
+# === Rust build ===
+/target
+**/*.rs.bk
+
+# === IntelliJ IDEA / RustRover / CLion ===
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# === VSCode (if you ever use it) ===
+.vscode/
+
+# === OS-specific ===
+.DS_Store
+Thumbs.db
+
+# === Environment & secrets ===
+.env
+.env.*
+*.local
+
+# === Logs ===
+*.log
+/logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

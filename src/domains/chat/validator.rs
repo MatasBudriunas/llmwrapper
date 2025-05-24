@@ -1,16 +1,11 @@
 use super::model::{ChatRequest, ValidatedChatRequest};
-
+use crate::shared::abstract_validator::*;
 const DEFAULT_MAX_TOKENS: u16 = 300;
 const DEFAULT_TEMPERATURE: f32 = 0.7;
 
 pub fn validate_chat_request(chat_request: &ChatRequest) -> Result<ValidatedChatRequest, String> {
-    if chat_request.prompt.trim().is_empty() {
-        return Err("Prompt cannot be empty.".to_string());
-    }
-
-    if chat_request.model.trim().is_empty() {
-        return Err("Model cannot be empty.".to_string());
-    }
+    validate_required_str(&chat_request.prompt, "Prompt")?;
+    validate_required_str(&chat_request.model, "Model")?;
 
     Ok(ValidatedChatRequest {
         model: chat_request.model.clone(),

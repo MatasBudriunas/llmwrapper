@@ -5,6 +5,7 @@ pub struct ChatRequest {
     pub api_key: String,
     pub model: String,
     pub prompt: String,
+    pub session_id: String,
     pub max_tokens: Option<u16>,
     pub temperature: Option<f32>,
     pub stream: Option<bool>,
@@ -12,6 +13,7 @@ pub struct ChatRequest {
 
 #[derive(Debug)]
 pub struct ValidatedChatRequest {
+    pub session_id: String,
     pub model: String,
     pub prompt: String,
     pub max_tokens: u16,

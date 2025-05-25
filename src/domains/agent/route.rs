@@ -2,12 +2,12 @@ use axum::{routing::post, Router};
 use std::sync::Arc;
 
 use crate::{
-    domains::chat::controller::handle_chat_request,
+    domains::agent::controller::handle_create_agent,
     shared::ollama::service::OllamaService,
 };
 
 pub fn routes(state: Arc<OllamaService>) -> Router {
     Router::new()
-        .route("/chat", post(handle_chat_request))
+        .route("/agent", post(handle_create_agent))
         .with_state(state)
 }

@@ -8,5 +8,5 @@ pub async fn send_prompt_to_ollama(
     validated: ValidatedChatRequest,
     service: Arc<OllamaService>,
 ) -> Result<ChatResponse, String> {
-    service.generate(&validated).await
+    service.generate_chat(&validated).await
 }

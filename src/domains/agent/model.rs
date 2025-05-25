@@ -1,30 +1,24 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Deserialize)]
-pub struct ChatRequest {
+pub struct AgentCreateRequest {
     pub api_key: String,
     pub model: String,
     pub prompt: String,
-    pub session_id: String,
-    pub agent: String,
-    pub max_tokens: Option<u16>,
     pub temperature: Option<f32>,
-    pub stream: Option<bool>,
+    pub max_tokens: Option<u16>,
 }
 
 #[derive(Debug)]
-pub struct ValidatedChatRequest {
-    pub session_id: String,
-    pub agent: String,
+pub struct ValidatedAgentRequest {
     pub model: String,
     pub prompt: String,
     pub max_tokens: u16,
     pub temperature: f32,
-    pub stream: bool,
 }
 
 #[derive(Debug, Serialize)]
-pub struct ChatResponse {
-    pub reply: String,
+pub struct AgentResponse {
+    pub personality: String,
     pub model: String,
 }

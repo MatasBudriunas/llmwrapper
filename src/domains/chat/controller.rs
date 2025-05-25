@@ -1,5 +1,6 @@
 use axum::{extract::State, http::{HeaderMap, StatusCode}, response::IntoResponse, Json};
 use std::sync::Arc;
+
 use crate::{
     domains::chat::{model::ChatRequest, validator::validate_chat_request, service},
     shared::{auth::validator::is_api_key_valid, ollama::service::OllamaService},
